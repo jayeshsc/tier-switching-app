@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Share Object Link</title>
+<link rel="stylesheet" href="/static/share.css">
+</head>
+<body>
+    <h1>🔗Share Link</h1>
+
+    <p>🔗File Link:</p>
+    <input type="text" id="object-link" value="{{ object_url }}" readonly style="width: 80%;">
+    <button id="copy-link">Copy Link</button>
+    <br>
+    <button id="back-home">Back to Home</button>
+
+    <h3>Note: Link Expires in 5 minutes after generated</h3>
+
+    <script>
+        document.getElementById('copy-link').addEventListener('click', function() {
+            var objectLink = document.getElementById('object-link');
+            objectLink.select();
+            document.execCommand('copy');
+            objectLink.setSelectionRange(0, 0);
+            alert('Link copied to clipboard 📋');
+        });
+
+        document.getElementById('back-home').addEventListener('click', function() {
+            // Add the URL to your home page here or use a relative path
+            window.location.href = '/';
+        });
+    </script>
+</body>
+</html>

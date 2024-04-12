@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tier Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="user-greeting">
+        <h2>Welcome, {{ session.username }}</h2>
+        <a href="{{ url_for('logout') }}" class="btn-logout">Logout</a>
+    </div>
+    <h1>Tier Dashboard</h1>
+   
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="submit" value="Upload">
+    </form>
+
+    <h2>Uploaded Files:</h2>
+    <table class="tier-container">
+        <tr>
+            <td>
+                <div class="tier">
+                    <h3>Tier 1(Original Tier)</h3>
+                    <ul>
+                        {% for file in files if file.tier == "Tier 1" %}
+                            <li>
+                                {{ file.Key }}
+                                <a href="{{ url_for('download', filename=file.Key) }}" class="btn-download" target="_blank">Download</a>
+                                <a href="{{ url_for('share', filename=file.Key) }}" class="btn-share">Share</a>
+                                <button class="btn-update-access" data-filename="{{ file.Key }}">Update Access Time</button>
+                                <button class="btn-delete" data-filename="{{ file.Key }}">Delete</button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="tier">
+                    <h3>Tier 2(Infrequent Access)</h3>
+                    <ul>
+                        {% for file in files if file.tier == "Tier 2" %}
+                            <li>
+                                {{ file.Key }}
+                                <a href="{{ url_for('download', filename=file.Key) }}" class="btn-download" target="_blank">Download</a>
+                                <a href="{{ url_for('share', filename=file.Key) }}" class="btn-share">Share</a>   
+                                <button class="btn-update-access" data-filename="{{ file.Key }}">Update Access Time</button>
+                                <button class="btn-delete" data-filename="{{ file.Key }}">Delete</button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </td>
+            <td>
+                <div class="tier">
+                    <h3>Tier 3(Archive Tier)</h3>
+                    <ul>
+                        {% for file in files if file.tier == "Original Tier" %}
+                            <li>
+                                {{ file.Key }}
+                                <a href="{{ url_for('download', filename=file.Key) }}" class="btn-download" target="_blank">Download</a>
+                                <a href="{{ url_for('share', filename=file.Key) }}" class="btn-share">Share</a>
+                                <button class="btn-update-access" data-filename="{{ file.Key }}">Update Access Time</button>
+                                <button class="btn-delete" data-filename="{{ file.Key }}">Delete</button>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <script>
+        setTimeout(function(){
+            window.location.reload();
+         }, 30000);
+        document.querySelectorAll('.btn-update-access').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var filename = this.getAttribute('data-filename');
+                updateAccessTime(filename);
+            });
+        });
+       
+        document.querySelectorAll('.btn-delete').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var filename = this.getAttribute('data-filename');
+                deleteFile(filename);
+            });
+        });
+
+        function updateAccessTime(filename) {
+            fetch('/update-access-time/' + filename, {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message);
+                location.reload(); // Refresh the page to reflect the updated access time
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
+        function deleteFile(filename) {
+            fetch('/delete-file/' + filename, {
+                method: 'POST',
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message);
+                location.reload(); // Refresh the page to reflect the file deletion
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+
+    <footer> <h3>Cloud Storage Cost Optimization by Rushaan Gandhi & Jayesh Chaudhari</h3></footer>
+</body>
+</html>
