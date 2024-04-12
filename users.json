@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "username": "jc4529",
+            "password": "jc4529",
+            "bucket_name": "storage-bucket-452910"
+        },
+        {
+            "username": "srmist",
+            "password": "srmist",
+            "bucket_name": "proj-452910-srmist"
+        }
+    ]
+}
