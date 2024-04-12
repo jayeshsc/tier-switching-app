@@ -1,0 +1,257 @@
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    color: #555;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form {
+    display: inline-block;
+}
+
+
+
+input[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #2577a1;
+    border-radius: 5px;
+}
+.btn-share {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 5px 10px; /* Padding around the button text */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show hand cursor on hover */
+    margin-left: 10px; /* Add some space to the right of the button */
+}
+
+/* Hover effect for the "Share" button */
+.btn-share:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+.btn-download {
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: limegreen;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border-radius: 5px;
+}
+
+.btn-download:hover {
+    background-color: green;
+    border-radius: 5px;
+}
+.btn-update-access {
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: yellow;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-update-access:hover {
+    background-color: goldenrod;
+    border-radius: 5px;
+}
+.btn-delete {
+    margin-left: 10px;
+    text-decoration: none;
+    background-color: red;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-delete:hover {
+    background-color: maroon;
+}
+
+/* Add some general styling to the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+/* Style the table rows */
+tr {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Style the table cells (columns) */
+td {
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Style the "Tier" headers */
+.tier h3 {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* Style the list items in the table */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    list-style: none;
+    border-radius: 5px;
+}
+
+/* Style the buttons in the list items */
+.btn-download, .btn-update-access, .btn-delete {
+    padding: 5px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Style the "Download" button with green color */
+.btn-download {
+    background-color: green;
+    border-radius: 5px;
+}
+
+/* Style the "Update Access Time" button with yellow color */
+.btn-update-access {
+    background-color: yellow;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Style the "Delete" button with red color */
+.btn-delete {
+    background-color: red;
+    border-radius: 5px;
+}
+
+/* Add spacing between rows and cells */
+tr, td {
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+}
+
+/* Add a border around the table */
+table {
+    width: 100%; /* Set a fixed width */
+   border-collapse: collapse;
+    margin: 20px auto; /* Center the table horizontally */
+    table-layout: fixed; /* Fix the table width */
+    border-radius: 5px;
+}
+
+
+/* styles.css */
+
+/* Style for the Logout button */
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff3333; /* Red background color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underlines from links */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+/* Change the background color of the button on hover */
+.btn-logout:hover {
+    background-color: #ff5555; /* Lighter red on hover */
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333; /* Dark background color for the header */
+    color: #fff; /* White text color */
+}
+
+/* Style for the user greeting */
+.user-greeting {
+    display: flex;
+    align-items: center;
+}
+
+/* Style for the Logout button */
+.btn-logout {
+    padding: 10px 20px;
+    background-color: #ff3333; /* Red background color */
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underlines from links */
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth hover effect */
+    margin-left: 10px; /* Add some space between the greeting and the button */
+}
+
+/* Change the background color of the button on hover */
+.btn-logout:hover {
+    background-color: #ff5555; /* Lighter red on hover */
+}
+footer{
+    text-align: center;
+    color: #333; 
+    margin: 0 0 10px;
+}
